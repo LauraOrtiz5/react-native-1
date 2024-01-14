@@ -1,0 +1,73 @@
+MODULE 1
+1. Welcome to this course and what to expect
+    Prior react knowledge ??
+
+2. What is react native?
+
+3. A glance under the hood of react native
+    React Native is a general code for both Android and IOS, while Native components are different on diff platforms
+    The logic outside the UI elements that is written in JS is not compiled, but instead it is a thread
+        that is hosted by React Native in the app. It will talk to the android or IOS platform using a 
+        basic translation bridge provided by react native
+
+5. Creating React native projects: expo CLI vs React NAtive CLI
+    Expo CLI is the recommendation and will be used in this course
+    Difference:
+        Expo: Third party service (free), you get a "managed app development" making everything easier
+            you can switch whenever you want to React Native CLI. 
+        React Native: Provided by the official website, you need more set-up to do (bare-bone development)
+            pro -- easier to integrate with native source code (in case you have to mix Java, etc), but you 
+            don't have to do it too often so it is not worth it right now
+
+8. Analyzing the created project
+    .expo -- internally used information (ignore it)
+    assets -- store images, icons, etc
+    node_modules -- all the 3rd party packages that we use under the hood
+    .gitignore -- 
+    App.js -- only real code file in the begining 
+    app.json -- here we can configure some settings and behaviours of the app (important later)
+    babel.config.js -- just configures how code is transpiled under the hood (do not change)
+    package-lock.json -- related to package.json
+    package.json -- list all dependencies
+
+10. Setting up a local development environment
+    *** Re-watch this video if you want a virtual environment that simulates an Android or IOS phone
+
+MODULE 2
+14. Exploring core components & component styling
+    Components - Combine core components to build the interface and React Native is the one in charge of translating
+    them into Android or IOS.
+    Styling - there is no CSS** because it is not a browser so the CSS language does not exist here. The
+    styling is written in JS, but RN gives you a lot of JS properties that you can set and pass to the
+    core elements. 
+        ** Cascading Style Sheets, it defines colors, fonts, spacing, layout, and more and is based
+        on a cascading principle, meaning that styles can be applied at different levels, and the final 
+        result is a combination of all applicable styles. This allows for flexibility and the ability to 
+        override styles as needed.
+
+15. Working with core components
+    If text is not inside <Text> element, it will give an error. View is able to include othe components
+    like buttons or images but it can't include text without the correct prompt.
+    - <Text> used for display text
+    - <View> container component used to hold and layout other components. Usually you have multiple 
+        child components inside the <View> component.
+    - <Button> user interface component for handling touches. It is self closing and the text in the 
+        button is written as title='', instead of between the opening and closing elements (as in text).
+    - etc
+
+16. Styling React Native Apps
+    2 options:
+    - Inline styles
+        Style prompt is accepted in some components, such as View and Text. In the style you can 
+        pass a JS object that is supported by RN.
+        Margin for example needs a number that is the pixel. Adding a border it is more visual to see
+        where the margin starts. 
+            Ex. style={{margin: 16, border: '1px solid red'}}, but border doesn't exist in RN
+            Sol. {{(...) borderWidth: 1, borderColor: 'red'}} and now RN accepts the styling prompt
+        We can also add padding, which is the spacing inside the element (in pixels)
+    - StyleSheet Objects
+        Clearly separate our jsx code and the styling code and makes the styles reusable. 
+        If we define the same as above in a stylesheet object, such as: 
+        dummyText: {margin: 16, borderWidth: 2, borderColor: 'black', padding: 16,}, then we can just 
+        use it multiple times by writting: style={styles.dummyText}
+
